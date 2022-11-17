@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-dp
+  labels:
+    app: mysql-app
+    type: mysql
+spec:
+  template:
+    metadata:
+      labels:
+        app: mysql-pod
+        type: mysql
+    spec:
+      containers:
+      - name: mysql-container
+        image: mysql:latest
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: "123456"
+          - name: MYSQL_DATABASE
+            value: "db_example"
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "1500m"
+  selector:
+    matchLabels:
+      type: mysql
+  replicas: 2
