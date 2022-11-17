@@ -15,8 +15,8 @@ O código enviado deve satisfazer exatamente o que foi pedido no enunciado, caso
 kubectl create -f deployments/mysql-dp.yml --save-config
 kubectl create -f services/mysql-svc.yaml --save-config
 
-kubectl create -f deployments/frontend-dp.yml -n=development --save-config
-kubectl create -f services/frontend-svc.yaml -n=development --save-config
+kubectl create -f deployments/frontend-dp.yml --save-config
+kubectl create -f services/frontend-svc.yaml --save-config
 
 
 kubectl get all -n development
